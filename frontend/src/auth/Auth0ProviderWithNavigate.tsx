@@ -14,20 +14,22 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
     throw new Error("Auth0 environment variables are not set");
   }
 
+  const onRedirectCallback = (appState?: AppState, user?: User) => {
+    console.log("Auth0 redirect callback:", user);
+    // We'll handle user creation in a separate component
+    // that has access to QueryClient
+  };
+
   return (
     <Auth0Provider
       domain={domain}
       clientId={clientId}
       authorizationParams={{ redirect_uri: redirectUri }}
       onRedirectCallback={onRedirectCallback}
-    >{children}
+    >
+      {children}
     </Auth0Provider>
   );
-};
-
-const onRedirectCallback = (appState?: AppState, user?: User) => {
-  // Customize your redirect logic here
-  console.log("Redirecting to:", appState?.targetUrl);
 };
 
 export default Auth0ProviderWithNavigate;
