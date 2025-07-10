@@ -5,8 +5,8 @@ import MainNav from "./MainNav";
 
 const Header = () => {
   return (
-    <div className="border-b-2 border-b-orange-500 py-6">
-      <div className="container mx-auto flex justify-between items-cneter">
+    <div className="border-b-2 border-b-orange-500 py-6 px-4 md:px-0">
+      <div className="container mx-auto flex justify-between items-center">
         <Link
           to={"/"}
           className="text-3xl font-bold tracking-tight text-orange-500"
@@ -14,7 +14,7 @@ const Header = () => {
           Food Order App
         </Link>
 
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
             <MobileNav/>
         </div>
         <div className="hidden md:block">

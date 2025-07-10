@@ -16,6 +16,7 @@ const AppRoutes = () => {
         }
       />
       <Route path="/user-profile" element={<span>User Profile Page</span>} />
+      <Route path="/settings" element={<span>Settings Page</span>} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
