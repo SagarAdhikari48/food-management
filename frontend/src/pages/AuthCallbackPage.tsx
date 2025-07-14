@@ -12,16 +12,18 @@ const AuthCallbackPage = () => {
   useEffect(() => {
     if (!isLoading && user?.sub && user?.email && !hasCreatedUser.current) {
       hasCreatedUser.current = true;
-      
+
       createUser({
         auth0Id: user.sub,
-        email: user.email
-      }).then(() => {
-        navigate("/");
-      }).catch((error) => {
-        console.error("Failed to create user:", error);
-        hasCreatedUser.current = false;
-      });
+        email: user.email,
+      })
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Failed to create user:", error);
+          hasCreatedUser.current = false;
+        });
     }
   }, [user, createUser, navigate, isLoading]);
 
